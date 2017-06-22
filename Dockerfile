@@ -22,6 +22,10 @@ COPY nginx.conf /etc/nginx/
 # copy swagger files to the `/js` folder
 ADD ./dist/* /usr/share/nginx/html/
 ADD ./docker-run.sh /usr/share/nginx/
+ADD ./swagger.yaml /usr/share/nginx/
+
+ENV SWAGGER_JSON "/usr/share/nginx/swagger.yaml"
+ENV VALIDATOR_URL "null"
 
 EXPOSE 8080
 

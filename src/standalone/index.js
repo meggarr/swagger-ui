@@ -8,7 +8,7 @@ import ConfigsPlugin from "plugins/configs"
 
 let preset = [
   // TopbarPlugin,
-  ConfigsPlugin,
+  // ConfigsPlugin,
   () => {
     return {
       components: { StandaloneLayout }

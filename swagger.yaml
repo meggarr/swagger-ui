@@ -1,0 +1,40 @@
+swagger: '2.0'
+info:
+  description: >-
+    This is a sample server Calix Cloud API. For this sample, you can use
+    admin@demo.com:Srini63456 to test the authorization filters.
+  version: 1.0.0 alpha
+  title: Calix Cloud API
+host: '10.245.247.230:8000'
+basePath: /
+tags:
+  - name: coper
+    description: Everything about operating your cpe device
+paths:
+  /coper/device/info:
+    get:
+      tags:
+        - coper
+      summary: Find device by serial number
+      description: Find device by serial number
+      operationId: getcoperById
+      produces:
+        - application/json
+      parameters:
+        - type: string
+          in: query
+          name: serialNumber
+          description: serialNumber
+          required: true
+          default: CXNK001870A7
+      responses:
+        '401':
+          description: Unauthorized
+      security:
+        - calix_cloud_auth: []
+securityDefinitions:
+  calix_cloud_auth:
+    type: oauth2
+    tokenUrl: 'http://10.245.247.230:8000/token'
+    flow: password
+    scopes: {}
